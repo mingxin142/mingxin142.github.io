@@ -142,7 +142,9 @@ function exe_all_fn() {
             $backTop.slideDown(300);
         }
     }
+}
 
+$(function () {
 
     $(".nav-menu>li").hover(function () {
         $(this).children('ul').stop(true, true).show();
@@ -163,9 +165,7 @@ function exe_all_fn() {
             $('.m-nav-item.m-nav-show').removeClass('m-nav-show');
         }
     });
-}
 
-$(function () {
     $('.modal').modal();
 
     $('.tooltipped').tooltip();
