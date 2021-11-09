@@ -131,7 +131,6 @@ function exe_all_fn() {
     articleInit();
 
 
-
     function showOrHideNavBg(position) {
         let showPosition = 100;
         if (position < showPosition) {
@@ -142,6 +141,7 @@ function exe_all_fn() {
             $backTop.slideDown(300);
         }
     }
+
 }
 
 $(function () {
@@ -205,7 +205,7 @@ function switchNightMode() {
     }
 }
 
-// 网站主题切换模式开始 
+// 网站主题切换模式开始
 if (localStorage.getItem('themespring') === '1') {
     document.body.classList.add('themespring');
 } else if (matchMedia('(prefers-color-scheme: themespring)').matches) {
