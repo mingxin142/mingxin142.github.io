@@ -1284,7 +1284,7 @@
                         type: 'pie',
                         radius: '50%',
                         color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                        data: [{"name":"hexo Matery","value":4},{"name":"渗透测试","value":5},{"name":"Linux","value":1},{"name":"摄影","value":3},{"name":"hexo","value":3},{"name":"渗透","value":1},{"name":"Git","value":1},{"name":"资源分享","value":3},{"name":"服务器","value":1},{"name":"台湾延时","value":1},{"name":"环境搭建","value":1},{"name":"随笔","value":1},{"name":"搭建环境","value":1},{"name":"编程","value":1},{"name":"设计","value":1},{"name":"手机系统","value":1}],
+                        data: [{"name":"摄影","value":3},{"name":"渗透测试","value":5},{"name":"Linux","value":1},{"name":"hexo","value":3},{"name":"hexo Matery","value":4},{"name":"Git","value":1},{"name":"资源分享","value":3},{"name":"渗透","value":1},{"name":"台湾延时","value":1},{"name":"服务器","value":1},{"name":"随笔","value":1},{"name":"环境搭建","value":1},{"name":"搭建环境","value":1},{"name":"编程","value":1},{"name":"手机系统","value":1},{"name":"设计","value":1}],
                         itemStyle: {
                             emphasis: {
                                 shadowBlur: 10,
@@ -1308,7 +1308,7 @@
                 xAxis: [
                     {
                         type: 'category',
-                        data: ["hexo","Linux","搭建环境","渗透测试","Kali Linux","hexo Matery","摄影","资源分享","Kali","Git"]
+                        data: ["hexo","Linux","渗透测试","Kali Linux","搭建环境","hexo Matery","摄影","资源分享","Git","Windows"]
                     }
                 ],
                 yAxis: [
@@ -1491,20 +1491,8 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/">
-                <span class="chip center-align waves-effect waves-light chip-default">搭建环境</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Linux/">
-                <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
-            </a>
-            
-            
-            
-            <a href="/tags/hexo-Matery/">
-                <span class="chip center-align waves-effect waves-light chip-default">hexo Matery</span>
+            <a href="/tags/%E6%91%84%E5%BD%B1/">
+                <span class="chip center-align waves-effect waves-light chip-default">摄影</span>
             </a>
             
             
@@ -1521,8 +1509,14 @@
             
             
             
-            <a href="/tags/%E6%91%84%E5%BD%B1/">
-                <span class="chip center-align waves-effect waves-light chip-default">摄影</span>
+            <a href="/tags/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/">
+                <span class="chip center-align waves-effect waves-light chip-default">搭建环境</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Linux/">
+                <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
             </a>
             
             
@@ -1532,6 +1526,10 @@
             </a>
             
             
+            
+            <a href="/tags/hexo-Matery/">
+                <span class="chip center-align waves-effect waves-light chip-default">hexo Matery</span>
+            </a>
             
             
             
@@ -1547,10 +1545,6 @@
             
             
             
-            <a href="/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/">
-                <span class="chip center-align waves-effect waves-light chip-default">资源分享</span>
-            </a>
-            
             
             
             <a href="/tags/%E8%A7%86%E9%A2%91/">
@@ -1559,14 +1553,20 @@
             
             
             
-            <a href="/tags/%E6%95%99%E7%A8%8B/">
-                <span class="chip center-align waves-effect waves-light chip-default">教程</span>
+            <a href="/tags/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/">
+                <span class="chip center-align waves-effect waves-light chip-default">资源分享</span>
             </a>
             
             
             
             <a href="/tags/%E9%9A%8F%E7%AC%94/">
                 <span class="chip center-align waves-effect waves-light chip-default">随笔</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%95%99%E7%A8%8B/">
+                <span class="chip center-align waves-effect waves-light chip-default">教程</span>
             </a>
             
             
@@ -1583,14 +1583,14 @@
             
             
             
-            <a href="/tags/%E8%AE%BE%E8%AE%A1/">
-                <span class="chip center-align waves-effect waves-light chip-default">设计</span>
+            <a href="/tags/Android/">
+                <span class="chip center-align waves-effect waves-light chip-default">Android</span>
             </a>
             
             
             
-            <a href="/tags/Android/">
-                <span class="chip center-align waves-effect waves-light chip-default">Android</span>
+            <a href="/tags/%E8%AE%BE%E8%AE%A1/">
+                <span class="chip center-align waves-effect waves-light chip-default">设计</span>
             </a>
             
             
@@ -2223,83 +2223,83 @@
         document.body.addEventListener('input', POWERMODE);
     </script>
 
-<!--    <script>-->
-<!--        //隐藏右键-->
-<!--        // document.oncontextmenu = function (event){-->
-<!--        //     if(window.event){-->
-<!--        //     event = window.event;-->
-<!--        //     }try{-->
-<!--        //     var the = event.srcElement;-->
-<!--        //     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){-->
-<!--        //     return false;-->
-<!--        //     }-->
-<!--        //     return true;-->
-<!--        //     }catch (e){-->
-<!--        //     return false;-->
-<!--        //     }-->
-<!--        // }-->
+    <script>
+        //隐藏右键
+        // document.oncontextmenu = function (event){
+        //     if(window.event){
+        //     event = window.event;
+        //     }try{
+        //     var the = event.srcElement;
+        //     if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        //     return false;
+        //     }
+        //     return true;
+        //     }catch (e){
+        //     return false;
+        //     }
+        // }
 
-<!--        // debugger部分-->
-<!--        setInterval(function() {-->
-<!--            check();-->
-<!--        }, 500);-->
-<!--        var check = function() {-->
-<!--            function doCheck(a) {-->
-<!--                if (('' + a / a)['length'] !== 1 || a % 20 === 0) {-->
-<!--                    (function() {}['constructor']('debugger')());-->
-<!--                } else {-->
-<!--                    (function() {}['constructor']('debugger')());-->
-<!--                }-->
-<!--                doCheck(++a);-->
-<!--            }-->
-<!--            try {-->
-<!--                doCheck(0);-->
-<!--            } catch (err) {}-->
-<!--        };-->
-<!--        check();-->
+        // debugger部分
+        setInterval(function() {
+            check();
+        }, 500);
+        var check = function() {
+            function doCheck(a) {
+                if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+                    (function() {}['constructor']('debugger')());
+                } else {
+                    (function() {}['constructor']('debugger')());
+                }
+                doCheck(++a);
+            }
+            try {
+                doCheck(0);
+            } catch (err) {}
+        };
+        check();
 
-<!--        // ctrl+s保存-->
-<!--        document.onkeydown = function() {-->
-<!--            if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s-->
-<!--                return false;-->
-<!--            }-->
-<!--        }-->
-<!--        window.addEventListener("keydown", function(e) {-->
-<!--            //可以判断是不是mac，如果是mac,ctrl变为花键-->
-<!--            //event.preventDefault() 方法阻止元素发生默认的行为。-->
-<!--            if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){-->
-<!--                e.preventDefault();-->
-<!--            }-->
-<!--        }, false);-->
-<!--        // F12-->
-<!--        document.onkeydown = function(){-->
-<!--            if(window.event && window.event.keyCode == 123) {-->
-<!--                event.keyCode=0;-->
-<!--                event.returnValue=false;-->
-<!--            }-->
-<!--            if(window.event && window.event.keyCode == 13) {-->
-<!--                window.event.keyCode = 505;-->
-<!--            }-->
-<!--            if(window.event && window.event.keyCode == 8) {-->
-<!--                window.event.returnValue=false;-->
-<!--            }-->
-<!--        }-->
-<!--        //宽高-->
-<!--        var threshold = 160; // 打开控制台的宽或高阈值-->
-<!--        // // 每秒检查一次-->
-<!--        window.setInterval(function() {-->
-<!--            if (window.outerWidth - window.innerWidth > threshold ||-->
-<!--                window.outerHeight - window.innerHeight > threshold) {-->
-<!--                // 如果打开控制台，则刷新页面-->
-<!--                window.location.reload();-->
-<!--            }-->
-<!--        }, 1e3);-->
+        // ctrl+s保存
+        document.onkeydown = function() {
+            if ((e.ctrlKey) && (e.keyCode == 83)) { //ctrl+s
+                return false;
+            }
+        }
+        window.addEventListener("keydown", function(e) {
+            //可以判断是不是mac，如果是mac,ctrl变为花键
+            //event.preventDefault() 方法阻止元素发生默认的行为。
+            if((e.key=='s'||e.key=='S')&&(navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)){
+                e.preventDefault();
+            }
+        }, false);
+        // F12
+        document.onkeydown = function(){
+            if(window.event && window.event.keyCode == 123) {
+                event.keyCode=0;
+                event.returnValue=false;
+            }
+            if(window.event && window.event.keyCode == 13) {
+                window.event.keyCode = 505;
+            }
+            if(window.event && window.event.keyCode == 8) {
+                window.event.returnValue=false;
+            }
+        }
+        //宽高
+        var threshold = 160; // 打开控制台的宽或高阈值
+        // // 每秒检查一次
+        window.setInterval(function() {
+            if (window.outerWidth - window.innerWidth > threshold ||
+                window.outerHeight - window.innerHeight > threshold) {
+                // 如果打开控制台，则刷新页面
+                window.location.reload();
+            }
+        }, 1e3);
 
-<!--        //debug调试时跳转页面-->
-<!--        var element = new Image();-->
-<!--        Object.defineProperty(element,'id',{get:function(){window.location.href="https://pic.downk.cc/item/5fe1a6073ffa7d37b349bf90.jpg"}});-->
-<!--        console.log(element);-->
-<!--    </script>-->
+        //debug调试时跳转页面
+        var element = new Image();
+        Object.defineProperty(element,'id',{get:function(){window.location.href="https://pic.downk.cc/item/5fe1a6073ffa7d37b349bf90.jpg"}});
+        console.log(element);
+    </script>
 
 </resource>
 
