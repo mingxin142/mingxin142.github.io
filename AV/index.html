@@ -1404,6 +1404,58 @@
 </script>
     <!-- 音乐 -->
     
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<style>
+    div#aplayer {
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        z-index: 9;
+    }
+
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    span.aplayer-list-title {
+        color: #666;
+    }
+
+    .aplayer .aplayer-list ol li {
+        background-color: aliceblue;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div id="aplayer" 
+>
+    
+    <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+               server="tencent"
+               type="playlist"
+               id="7769642341"
+               fixed='true'
+               autoplay='true'
+               theme='#42b983'
+               loop='all'
+               order='random'
+               preload='auto'
+               volume='1'
+               list-folded='true'
+    >
+    </meting-js>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
 
     <!-- Baidu Analytics -->
 
